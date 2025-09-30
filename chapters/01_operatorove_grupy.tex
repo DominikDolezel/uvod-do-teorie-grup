@@ -1,0 +1,65 @@
+\section{Operátorové grupy}
+\begin{definice}
+	Ať $\Omega$ je množina. Množina $G$ spolu s:
+	\begin{enumerate}[$(i)$]
+		\item binární operací $\cdot : G\times G\to G$ (zapisujeme infixem\footnote{mezi argumenty}),
+		\item unární operací $^{-1}:G\to G$ (zapisujeme postfixem\footnote{za argumentem}),
+		\item nulární operací, tj. konstantou $\mathtt 1\in G$,
+		\item unárními operacemi $\omega \in \Omega: G\to G$ (zapisované prefixem\footnote{před argumentem, tady $\omega(\phantom x)$})
+	\end{enumerate}
+	se nazývá \textbf{$\Omega$-grupou}, pokud:
+	\begin{enumerate}[$(i)$]
+		\item $\cdot$ je asociativní, tj. $\forall a,b,c\in G: (a\cdot b)\cdot c = a\cdot (b\cdot c)$,
+		\item $\mathtt 1$ je \textbf{neutrální prvek} vzhledem k operaci $\cdot$, tj. $\forall a \in G:a\cdot \mathtt 1 = \mathtt 1 \cdot a=a$,
+		\item $\forall a \in G$ je $a^{-1}$ \textbf{inverzní prvek} k $a$, tj. $a\cdot a^{-1}=a^{-1}\cdot a=\mathtt 1$,
+		\item $\forall \omega \in \Omega$ je $\omega$ \textbf{slučitelná s} operací $\cdot$, tj. $\forall a,b \in G: \omega(a\cdot b)=\omega(a)\cdot \omega(b).$
+	\end{enumerate}
+\end{definice}
+
+\begin{poznamka}\,
+\begin{enumerate}[i.]
+	\item Je-li $\Omega = \emptyset$, pak místo o $\Omega$-grupě hovoříme jen o \textbf{grupě}.
+	\item Pro všechna $a,b,c\in G$ platí:
+	$$
+	    (a\cdot b = a\cdot c \implies b=c) \land (b\cdot a= c\cdot a \implies b=c).
+	$$
+	Dokážeme aplikací $a^{-1}\cdot:$
+	\begin{align*}
+		a^{-1}\cdot(a\cdot b) &=a^{-1}\cdot(a\cdot c) \\
+		(a^{-1}\cdot a)\cdot b &=(a^{-1}\cdot a)\cdot c \\
+		\mathtt 1 \cdot b &=\mathtt 1 \cdot c.
+	\end{align*}
+	\item Z předchozího plyne $\left( a^{-1} \right )^{-1}=a $, neboť
+	$$
+	    a^{-1}\cdot \left( a^{-1} \right )^{-1} = a^{-1}\cdot a \implies a=\left( a^{-1} \right )^{-1}.
+	$$
+	\item Inverzní k $a\in G$ je právě jeden prvek, a sice $a^{-1}$. neutrální prvek
+	vzhledem k operaci $\cdot$ je právě jeden, a sice $\mathtt 1$. (Sporem předpokládejme, že existuje
+	i $\mathtt 1^\prime\ne \mathtt 1$, ale zároveň $a\cdot \mathtt 1 = a\cdot\mathtt1^\prime\implies \mathtt 1 = \mathtt 1^\prime$,
+	což je spor.)
+	\item Symbol $\cdot$ se často nepíše.
+\end{enumerate}
+\end{poznamka}
+
+
+\begin{definice}
+	Ať $G$ je $\Omega$-grupa. \textbf{Řádem} $\Omega$-grupy $G$ rozumíme mohutnost množiny $G$, značíme
+	$|G|$ nebo $\ord G$.
+\end{definice}
+
+\begin{definice}
+	Buďte $G,H$ $\Omega$-grupy, $f:G\to H$ zobrazení. Řekneme, že $f$ je \textbf{homomorfismus}
+	$\Omega$-grup $G,H$, jestliže
+	\begin{enumerate}[$(i)$]
+		\item $\forall a,b\in G: f(a\cdot b)=f(a)\cdot f(b)$ a
+		\item $\forall a,b \in G, \forall \omega in \Omega: f(\omega(a))=\omega(f(a)).$
+\end{enumerate}
+\end{definice}
+
+\begin{lemma}
+	Je-li $f:G\to H$ homomorfismus $\Omega$-grup, pak $f(\mathtt 1)= \mathtt 1$ a $\forall a\in G:f \left( a^{-1} \right ) =\left( f(a) \right )^{-1} $.
+\end{lemma}
+
+\begin{proof}
+	\,
+\end{proof}

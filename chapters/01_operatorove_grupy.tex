@@ -33,7 +33,7 @@
 	$$
 	    a^{-1}\cdot \left( a^{-1} \right )^{-1} = a^{-1}\cdot a \implies a=\left( a^{-1} \right )^{-1}.
 	$$
-	\item Inverzní k $a\in G$ je právě jeden prvek, a sice $a^{-1}$. neutrální prvek
+	\item Inverzní k $a\in G$ je právě jeden prvek, a sice $a^{-1}$. Neutrální prvek
 	vzhledem k operaci $\cdot$ je právě jeden, a sice $\mathtt 1$. (Sporem předpokládejme, že existuje
 	i $\mathtt 1^\prime\ne \mathtt 1$, ale zároveň $a\cdot \mathtt 1 = a\cdot\mathtt1^\prime\implies \mathtt 1 = \mathtt 1^\prime$,
 	což je spor.)
@@ -52,14 +52,143 @@
 	$\Omega$-grup $G,H$, jestliže
 	\begin{enumerate}[$(i)$]
 		\item $\forall a,b\in G: f(a\cdot b)=f(a)\cdot f(b)$ a
-		\item $\forall a,b \in G, \forall \omega in \Omega: f(\omega(a))=\omega(f(a)).$
+		\item $\forall a,b \in G, \forall \omega \in \Omega: f(\omega(a))=\omega(f(a)).$
 \end{enumerate}
 \end{definice}
 
-\begin{lemma}
+\begin{lemma}\label{lemma11}
 	Je-li $f:G\to H$ homomorfismus $\Omega$-grup, pak $f(\mathtt 1)= \mathtt 1$ a $\forall a\in G:f \left( a^{-1} \right ) =\left( f(a) \right )^{-1} $.
 \end{lemma}
 
 \begin{proof}
-	\,
+	Platí:
+	$$
+	    \mathtt 1 \cdot f(\mathtt 1)=f(\mathtt 1)=f(\mathtt 1\cdot \mathtt 1)=f(\mathtt 1)\cdot f(\mathtt 1)\implies f(\mathtt 1)=\mathtt 1.
+	$$
+	Dále
+	$$
+	    f(a^{-1})\cdot f(a)=f(a^{-1}\cdot a)=f(\mathtt 1)=\mathtt 1,
+	$$
+	ale taky
+	$$
+	    f(a)\cdot f(a^{-1})=f(a\cdot a^{-1})=f(\mathtt 1)=\mathtt 1,
+	$$
+	odkud plyne $f(a^{-1})=\left( f(a) \right )^{-1} $, jelikož jediný inverzní prvek k $f(a)$ je pouze
+	$\left( f(a) \right )^{-1} $.
 \end{proof}
+
+\begin{definice}
+	Ať $f: G\to H$ je homomorfismus $\Omega$-grup. Pak $f$ je:
+	\begin{enumerate}[($i$)]
+		\item \textbf{izomorfismus}, jestliže $f$ je bijektivní;
+		\item \textbf{endomorfismus} (\textbf{grupy G}), jestliže $G=H$;
+		\item \textbf{automorfismus}, jestliže je $f$ endomorfismus a izomorfismus.
+	\end{enumerate}
+\end{definice}
+
+\begin{cviceni}
+	Ať $f:G\to H$ je homomorfismus $\Omega$-grup. Ukažte, že $f$ je izomorfismus právě
+	tehdy, když existuje homomorfismus $g:H\to G$ tak, že $f\circ g=\id_G$ a $g\circ f=\id_H$.
+\end{cviceni}
+
+\begin{lemma}
+    \begin{enumerate}[($i$)]
+    	\item Ať $f:G\to H$, $g:H\to K$ jsou homomorfismy $\Omega$-grup. Pak $g\circ f$ je
+        homomorfismus.
+        \item Je-li $f:G\to H$ homomorfismus, pak $f^{-1}:H\to G$ je opět homomorfismus.
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    \begin{enumerate}[($i$)]
+    	\item Snadné.
+        \item $f^{-1}$ je jistě bijekce, ověříme jen, že $f^{-1}$ je homomorfismus. Počítejme
+        $$
+            f \left( f^{-1}(a)\cdot f^{-1}(b) \right )=f \left( f^{-1}(a) \right )\cdot f \left( f^{-1}(b) \right )=a\cdot b.
+        $$
+        Na tuto rovnost aplikujeme $f^{-1}$:
+        $$
+            f^{-1}(a)\cdot f^{-1}(b)=f^{-1}(a\cdot b).
+        $$
+        Ať $\omega \in \Omega$, $a \in H$ jsou libovolná. Pak
+        $$
+            f \left( \omega \left( f^{-1}(a) \right )  \right )=\omega \left( f \left( f^{-1}(a) \right )  \right )=\omega(a).
+        $$
+        Opět aplikujeme $f^{-1}$:
+        $$
+            \omega \left( f^{-1}(a) \right )=f^{-1}\left( \omega (a) \right ),
+        $$
+        což jsme chtěli dokázat.
+        \qedhere
+    \end{enumerate}
+\end{proof}
+
+\begin{definice}
+	Pokud je v $\Omega$-grupě $G$ operace $\cdot$ komutativní, tj.
+	$$
+	    \forall a,b\in G: a\cdot b = b\cdot a,
+	$$
+	potom nazýváme $G$ \textbf{komutativní} (též \textbf{abelovskou}) $\Omega$-grupou.
+\end{definice}
+
+\begin{priklad}
+    \begin{enumerate}[1.]
+    	\item $\Omega = \emptyset$:
+            \begin{itemize}
+           	    \item $(\mathbb Z ,+,-,0)$ je abelovská grupa
+                \item $X$ je množina, $S(X)=\left \{ \sigma:X\to X, \sigma\, \mathrm{bijekce} \right \} $\\
+                s operacemi $\circ$ (skládání zobrazení), $^{-1}$ (inverzní zobrazení), $\mathtt 1$ (identické zobrazení)\\
+                $S(x)$ je abelovská právě tehdy, když $|X|<3$. Je-li $X=\left \{ 1,2,\dots,n \right \},n \in \mathbb N , $
+                pak $S(X):=S_n\footnote{symetrická grupa na $n$ prvcích}$.
+                \item $R$ je okruh, pak $(R,+,-,0)$ je abelovská grupa,\\
+                $(R^*,\cdot,^{-1},\mathtt 1)$, kde $R^*=\left \{ r\in R, \exists s \in R, r\cdot s = s\cdot r = \mathtt 1 \right \}$ je grupa
+                invertibilních prvků
+                \item $n\in \mathbb N , T$ je těleso, $M_n(T)$ je okruh matic $n\times n$ nad tělesem $T$\\
+                $(M_n(T))^*=\left \{ A\in M_n(T), \det(A)\ne 0 \right \} := GL_n(T)\footnote{zobecněná lineární grupa}$
+                \item Ať $G=(V,E)$ je neorientovaný graf. Pak $Aut(G)=\left \{ f:V\to V, f \textrm{ automorfismus grafu } G \right \} $.\\
+                Speciálně pro graf $C_n$, $n \in \mathbb N \smallsetminus \left \{ 1,2 \right \} $ platí $Aut(C_n):=D_{2n}=D_n\leq S_n$.
+            \end{itemize}
+        \item $\Omega \ne \emptyset$:\\
+            $T$ je (komutativní) těleso, $V$ je vektorový prostor nad $T$. Pak $(V,+,-,0)$ je abelovská grupa,
+            $\Omega= \left \{ \cdot t:V\to V,t\in T \right \} $. $V$ je $\Omega$-grupa.\\
+            Obecněji: $R$ je okruh, $M$ je (pravý) modul nad $R$. Například je-li $M=N_{2\times 3}(T)$,
+            pak $\left( M,+,-,\begin{pmatrix}
+                0 & 0 & 0\\
+                0 & 0 & 0
+            \end{pmatrix} \right ) $ je abelovská grupa. Je-li $R=M_3(T)$, $M$ je pravý $R$ modul, pak $M$
+            je $\Omega$-grupa.
+    \end{enumerate}
+\end{priklad}
+
+\begin{definice}
+	Ať $G$ je $\Omega$-grupa, $A\subseteq G$. Pak $A$ nazveme \textbf{$\Omega$-podgrupou} $\Omega$-grupy $G$,
+	píšeme $A\leq G$, pokud:
+	\begin{enumerate}[($i$)]
+		\item $\mathtt 1\in A$,
+		\item $\forall a,b \in A:a\cdot b\in A$ a $a^{-1}\in A$,
+		\item $\forall a \in A:\forall \omega \in \Omega: \omega(a)\in A$.
+    \end{enumerate}
+\end{definice}
+
+\begin{dusledek}
+	Ať $G$ je $\Omega$-grupa. Množina $Aut(G)$ všech automorfismů $\Omega$-grupy $G$ tvoří spolu s
+	operacemi $\circ, ^{-1},\id_G$ grupu. Platí $Aut(G)\leq S(G).$
+\end{dusledek}
+
+\begin{dusledek}
+	Ať $G$ je $\Omega$-grupa, $\omega\in \Omega$. Pak $\omega:G\to G$ je endomorfismus grupy $G$
+	(tj. $\emptyset$-grupy $G$). Mj. platí, že $\omega(\mathtt 1)=\mathtt 1$, $\omega \left( a^{-1} \right ) = \left( \omega(a) \right )^{-1} \forall a \in G.$
+\end{dusledek}
+
+\begin{proof}
+	Plyne ihned z \ref{lemma11}.
+\end{proof}
+
+\begin{poznamka}
+	Často je přímo $\Omega \subseteq End(G)=\left \{ f:G\to G,f \textrm{ je endomorfismus grupy }G \right \} $.
+\end{poznamka}
+
+\begin{lemma}
+	Ať $G$ je grupa, $g\in G$ libovolné. Označme $\alpha_G:G\to G$ takové, že $\forall a \in G:\alpha_G (a)=gag^{-1}$.
+	Pak je $\alpha_g\in Aut(G)$ a nazývá se vnitřní automorfismus určený prvkem $g$.
+\end{lemma}
